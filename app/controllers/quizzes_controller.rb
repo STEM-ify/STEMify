@@ -11,7 +11,7 @@ class QuizzesController < ApplicationController
   # GET /quizzes/1.json
   def show
     @quiz
-    @questions = @Quiz.questions
+    #@questions = @Quiz.questions
   end
 
   # GET /quizzes/new
@@ -26,7 +26,7 @@ class QuizzesController < ApplicationController
   # POST /quizzes
   # POST /quizzes.json
   def create
-    @quiz = Quiz.new(quiz_params)
+    @quiz = Quiz.new(:title => params[:title], :description => params[:descrption], :user_id => current_user.id)
 
     respond_to do |format|
       if @quiz.save
@@ -71,7 +71,7 @@ class QuizzesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-      params.require(:quiz).permit(:title, :topic_id)
+      #params.require(:quiz).permit(:title, :description, :topic_id, :question)
+      params.permit(:title, :description, :question)
     end
-end
 end
