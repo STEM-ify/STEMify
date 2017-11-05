@@ -1,0 +1,13 @@
+<h1>Editing Quiz</h1>
+
+<form>
+  Title:<br>
+  <input type="text" name="title"><br>
+  Description:<br>
+  <input type="text" name="description">
+</form>
+
+<%= render 'form', quiz: @quiz %>
+
+<%= link_to 'Show', @quiz %> |
+<%= link_to 'Back', quizzes_path %>
