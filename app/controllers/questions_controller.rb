@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question
-    @answer = @question.answer
+    @text= @question.comment
     @labels = @question.labels
     @comments = @question.comments
     @difficulty = @question.difficulty
